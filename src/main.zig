@@ -1,8 +1,8 @@
-const std = @import("std");
-
 //! By convention, main.zig is where your main function lives in the case that
 //! you are building an executable. If you are making a library, the convention
 //! is to delete this file and start with root.zig instead.
+
+const std = @import("std");
 
 pub fn main() !void {
     // Prints to stderr (it's a shortcut based on `std.io.getStdErr()`)
@@ -25,10 +25,6 @@ test "simple test" {
     defer list.deinit(); // Try commenting this out and see if zig detects the memory leak!
     try list.append(42);
     try std.testing.expectEqual(@as(i32, 42), list.pop());
-}
-
-test "use other module" {
-    try std.testing.expectEqual(@as(i32, 150), lib.add(100, 50));
 }
 
 test "fuzz example" {
