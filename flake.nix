@@ -17,9 +17,9 @@
       perSystem = { pkgs, stdenv, lib, ... }:
         let
           zig = pkgs.zig_0_14;
-          hoge = pkgs.stdenv.mkDerivation {
-            pname = "hoge";
-            version = "0.1.0";
+          zig_0_14_test = pkgs.stdenv.mkDerivation {
+            pname = "zig_0_14_test";
+            version = "0.0.0";
             src = lib.cleanSource ./.;
 
             nativeBuildInputs = [
@@ -29,8 +29,8 @@
         in
         {
           packages = {
-            inherit hoge;
-            default = hoge;
+            inherit zig_0_14_test;
+            default = zig_0_14_test;
           };
 
           devShells.default = pkgs.mkShell {
