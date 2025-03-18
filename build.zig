@@ -9,6 +9,8 @@ pub fn build(b: *std.Build) void {
         .target = target,
         .optimize = optimize,
     });
+    const clap_mod = b.dependency("clap", .{}).module("clap");
+    exe_mod.addImport("clap", clap_mod);
 
     const exe = b.addExecutable(.{
         .name = "hoge",
